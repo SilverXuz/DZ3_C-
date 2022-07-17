@@ -1,9 +1,8 @@
-﻿
-int[] array = new int[100];
+﻿int[] array = new int[10]; // Поставил 10 чтобы провести проверку на лимит значений. 
 int max = 0;
 int secondMax = 0;
 int i = 0;
-while (i < array.Length)
+while (i < array.Length-1)
     {
         Console.Write("Введите число от 0 до 100(ноль не ранее третьего значения): ");
         array[i] = Convert.ToInt32(Console.ReadLine());
@@ -33,10 +32,14 @@ while (i < array.Length)
             int y = Convert.ToInt32(Console.ReadLine());
             if (y == 1)
                 {
-                    Console.WriteLine("Второе максимальное число -> " + secondMax);
                     break;
                 }
         }
-        else
+        if (i == array.Length-2 && array[i] != 0)
+        {
+            Console.WriteLine("Это последнее число, вы еще не вводили ноль. Ноль введен принудительно: ");
+            Console.WriteLine(0);
+        }
         i++;
     }
+Console.WriteLine("Второе максимальное число -> " + secondMax);
